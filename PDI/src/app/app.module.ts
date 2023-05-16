@@ -13,14 +13,18 @@ import{MenubarModule} from'primeng/menubar';
 import { TabViewModule } from 'primeng/tabview';
 import{TagModule} from 'primeng/tag';
 import{ToastModule} from 'primeng/toast';
+import { TableModule } from 'primeng/table';
 import { StepsModule } from 'primeng/steps';
+import{AvatarModule} from 'primeng/avatar';
 import { InputTextModule } from 'primeng/inputtext';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SplitterModule } from 'primeng/splitter';
 import { PanelModule } from 'primeng/panel';
 import { HomepageComponent } from './homepage/homepage.component';
 import { SearchTravelComponent } from './search-travel/search-travel.component';
 import { AddTravelComponent } from './add-travel/add-travel.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component'; 
+import { FieldsetModule } from 'primeng/fieldset';
 
 @NgModule({
   declarations: [
@@ -45,8 +49,12 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     TagModule,
     StepsModule,
     ToastModule,
+    SplitterModule,
     InputTextModule,
-    PanelModule
+    PanelModule,
+    TableModule,
+    AvatarModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

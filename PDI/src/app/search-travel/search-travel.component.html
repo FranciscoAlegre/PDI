@@ -1,1 +1,27 @@
 <app-nav-bar></app-nav-bar>
+
+
+<div class="card  gradient-background">
+
+    
+<div class="card">
+    <p-table [value]="localdata" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Quantity</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-localdata>
+            <tr>
+                <td>{{ localdata.nomeAluno }}</td>
+                <td>{{ localdata.cidadePartida }}</td>
+                <td>{{ localdata.nomeInstituicao }}</td>
+                <td>{{ localdata.dataViagem }}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>  
+  </div>

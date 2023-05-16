@@ -7,10 +7,28 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-travel.component.css']
 })
 export class AddTravelComponent implements OnInit{
- 
-ngOnInit(){
+  registarV: any[]=[];
+  registerViagem:any={
 
+    nomeAluno:'',
+    cidadePartida:'',
+    nomeInstituicao:'',
+    dataViagem:''
+  }
+ngOnInit(){
+ 
 
 }
+onRegisterViagem(){
 
+  this.registarV.push(this.registerViagem);
+  localStorage.setItem('registarV',JSON.stringify(this.registarV))
+  this.registerViagem ={
+
+    nomeAluno:'',
+    cidadePartida:'',
+    nomeInstituicao:'',
+    dataViagem:''
+  }
+}
 }

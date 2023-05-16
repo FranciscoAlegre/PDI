@@ -1,9 +1,22 @@
-
-
 <app-nav-bar></app-nav-bar>
 
+<p-divider></p-divider>
 
-<div class="card flex justify-content-center">
-   
-   <p-button>oaksoakksao</p-button>
+<div class="card flex flex-column justify-content-center gradient-background">
+  <div class="p-card w-100 gradient-background1 " style="width: 100%;display: flex;justify-content: center;">
+    <h1 style="font-family: Arial, Helvetica, sans-serif;">Adicionar Viagem</h1>
+  </div>
 </div>
+<p-divider></p-divider>
+
+    <div class="p-card w-100 gradient-background1 " style="width: 100%;display: flex;justify-content: center;">
+        <form>
+            <input type="text" name="txt" placeholder="Nome Aluno" [(ngModel)]="registerViagem.nomeAluno" required="" >
+            <input type="txt" name="txt" placeholder="Cidade Partida" [(ngModel)]="registerViagem.cidadePartida" required="">
+            <input type="txt" name="pswd" placeholder="Nome Instituição" [(ngModel)]="registerViagem.nomeInstituicao" required="">
+            <input type="date" name="date" placeholder="Data Viagem" [(ngModel)]="registerViagem.dataViagem" required="">
+
+            <button (click)="onRegisterViagem()">Registar Viagem</button>
+          </form>
+    </div>
+  
