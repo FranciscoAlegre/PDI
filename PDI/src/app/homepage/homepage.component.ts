@@ -45,6 +45,14 @@ logout() {
   
   this.router.navigate(['/login']);
 }
+onClickADD(){
+
+  this.router.navigate(['/addTravel'])
+}
+onClicksearchTravel(){
+
+  this.router.navigate(['/searchTravel'])
+}
 }
 
 

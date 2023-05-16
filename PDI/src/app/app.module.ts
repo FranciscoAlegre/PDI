@@ -6,17 +6,30 @@ import { AppComponent } from './app.component';
 import { ButtonModule } from 'primeng/button';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms'; 
+import { CarouselModule } from 'primeng/carousel';
 import{CardModule} from'primeng/card';
+import{DividerModule} from'primeng/divider';
 import{MenubarModule} from'primeng/menubar';
 import { TabViewModule } from 'primeng/tabview';
+import{TagModule} from 'primeng/tag';
+import{ToastModule} from 'primeng/toast';
+import { StepsModule } from 'primeng/steps';
+import { InputTextModule } from 'primeng/inputtext';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HomepageComponent } from './homepage/homepage.component'; 
+import { PanelModule } from 'primeng/panel';
+import { HomepageComponent } from './homepage/homepage.component';
+import { SearchTravelComponent } from './search-travel/search-travel.component';
+import { AddTravelComponent } from './add-travel/add-travel.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component'; 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomepageComponent
+    HomepageComponent,
+    SearchTravelComponent,
+    AddTravelComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +39,14 @@ import { HomepageComponent } from './homepage/homepage.component';
     ReactiveFormsModule,
     CardModule,
     TabViewModule,
-    MenubarModule
+    MenubarModule,
+    DividerModule,
+    CarouselModule,
+    TagModule,
+    StepsModule,
+    ToastModule,
+    InputTextModule,
+    PanelModule
   ],
   providers: [],
   bootstrap: [AppComponent]
