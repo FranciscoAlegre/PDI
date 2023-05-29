@@ -25,7 +25,8 @@ import { SearchTravelComponent } from './search-travel/search-travel.component';
 import { AddTravelComponent } from './add-travel/add-travel.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component'; 
 import { FieldsetModule } from 'primeng/fieldset';
-
+import{AngularFireModule} from '@angular/fire/compat';
+import { environements } from 'src/environements/environements';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,7 +55,7 @@ import { FieldsetModule } from 'primeng/fieldset';
     PanelModule,
     TableModule,
     AvatarModule,
-
+    AngularFireModule.initializeApp(environements.firebase)
   ],
   providers: [],
   bootstrap: [AppComponent]

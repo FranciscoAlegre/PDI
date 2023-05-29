@@ -1,36 +1,22 @@
 import { Component ,OnInit} from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { Router } from '@angular/router';
+import { AuthService } from '../shared/auth.service';
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit{
-  constructor(private router: Router) {}
+  constructor(private auth :AuthService,private router: Router) {}
   items: MenuItem[] = [];
   ngOnInit(){
 
     this.items = [
       {
           label: 'Início',
-          icon: 'pi pi-fw pi-file',
+          icon: 'pi pi-fw pi-home',
           command: () => this.home(),
-      },
-      {
-          label: 'Edit',
-          icon: 'pi pi-fw pi-pencil',
-         
-      },
-      {
-          label: 'Users',
-          icon: 'pi pi-fw pi-user',
-         
-      },
-      {
-          label: 'Events',
-          icon: 'pi pi-fw pi-calendar',
-          
       },
       {
           label: 'Logout',
@@ -44,7 +30,8 @@ export class NavBarComponent implements OnInit{
   }
   logout() {
     
-    this.router.navigate(['/login']);
+    this.auth.logout();
+    alert('Sessão terminada com sucesso')
   }
   home() {
     

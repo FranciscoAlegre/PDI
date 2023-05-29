@@ -13,7 +13,7 @@
 	height: 500px;
 	background: red;
 	overflow: hidden;
-	background: goldenrod ;
+	background: rgb(76, 60, 148) ;
 	border-radius: 10px;
 	box-shadow: 5px 20px 50px #000;
 }
@@ -54,7 +54,7 @@ button{
 	justify-content: center;
 	display: block;
 	color: #fff;
-	background: #573b8a;
+	background: #0f0f0f;
 	font-size: 1em;
 	font-weight: bold;
 	margin-top: 20px;
@@ -75,7 +75,7 @@ button:hover{
 	transition: .8s ease-in-out;
 }
 .login label{
-	color: #573b8a;
+	color: #480db5;
 	transform: scale(.6);
 }
 

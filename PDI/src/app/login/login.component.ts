@@ -1,5 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { initializeApp } from "firebase/app";
+import { AuthService } from '../shared/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -7,49 +9,45 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-signUpuser: any[]=[];
-signUpobj:any={
+email: string ='';
+password: string =''; 
 
-  userName:'',
-  email:'',
-  password:''
+constructor(private auth:AuthService){}
+
+ngOnInit(): void {
+   
 }
-loginobj:any={
-
-  email:'',
-  password:''
-}
-constructor(private router: Router) { }
-
-  ngOnInit(){
-    const localData=localStorage.getItem('signUpuser');
-    if(localData!=null){
-      this.signUpuser=JSON.parse(localData);
+login(){
+      if(this.email == ''){
+      alert('Por favor introduz um email válido');
+      return;
     }
-  }
+    if(this.password == ''){
+      alert('Por favor introduz a password correta');
+      return;
+    }
+
+    this.auth.login(this.email,this.password);
+    this.email='';
+    this.password='';
+    }
+
+    registar(){
+      if(this.email == ''){
+      alert('Por favor introduz um email válido');
+      return;
+    }
+    if(this.password == ''){
+      alert('Por favor introduz a password correta');
+      return;
+    }
+
+    this.auth.registar(this.email,this.password);
+    this.email='';
+    this.password='';
+    }
 
 
-onSignUp(){
 
-this.signUpuser.push(this.signUpobj);
-localStorage.setItem('signUpuser',JSON.stringify(this.signUpuser))
-this.signUpobj={
-
-  userName:'',
-  email:'',
-  password:''
-}
-}
-
-onLogin(){
-
-const isUserRegisted=this.signUpuser.find(m=> m.email == this.loginobj.email && m.password==this.loginobj.password);
-if(isUserRegisted != undefined){
-  alert('Login Successfull');
-  this.router.navigate(['/homepage']);
-  } else {
-    alert('Invalid Login Credentials');
-  } 
-}
 }
 
