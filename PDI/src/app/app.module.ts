@@ -16,6 +16,7 @@ import{ToastModule} from 'primeng/toast';
 import { TableModule } from 'primeng/table';
 import { StepsModule } from 'primeng/steps';
 import{AvatarModule} from 'primeng/avatar';
+import {  PaginatorModule } from 'primeng/paginator';
 import { InputTextModule } from 'primeng/inputtext';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SplitterModule } from 'primeng/splitter';
@@ -24,9 +25,11 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { SearchTravelComponent } from './search-travel/search-travel.component';
 import { AddTravelComponent } from './add-travel/add-travel.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component'; 
-import { FieldsetModule } from 'primeng/fieldset';
 import{AngularFireModule} from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore/'; 
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database'; 
 import { environements } from 'src/environements/environements';
+import { initializeApp } from "@angular/fire/app";
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,12 +53,17 @@ import { environements } from 'src/environements/environements';
     TagModule,
     StepsModule,
     ToastModule,
+    PaginatorModule,
     SplitterModule,
     InputTextModule,
     PanelModule,
     TableModule,
     AvatarModule,
-    AngularFireModule.initializeApp(environements.firebase)
+    FormsModule,
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environements.firebase),
+    AngularFirestoreModule,
+    AngularFireDatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]

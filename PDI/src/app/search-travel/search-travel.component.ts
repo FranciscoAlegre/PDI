@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-
+import { DataService } from '../shared/data.service';
 @Component({
   selector: 'app-search-travel',
   templateUrl: './search-travel.component.html',
   styleUrls: ['./search-travel.component.css']
 })
 export class SearchTravelComponent implements OnInit {
-
-  localdata: any[]=[];
-
+  constructor(public data:DataService){}
+  viagemList: any[]=[];
   ngOnInit(): void {
-    const localData = localStorage.getItem('registarV');
-    this.localdata = localData ? JSON.parse(localData) : [];
-    console.log(localData);
+    this.data.getViagemList().subscribe((res: any[]) => {
+      this.viagemList = res;
+      console.log(this.viagemList);
+    });
   }
 }
  
