@@ -4,6 +4,7 @@ export interface Viagem {
     contacto: string,
     nomeAluno:string,
     cidadePartida:string,
-    nomeInstituicao:string
+    nomeInstituicao:string,
+    userID:string
     
 }

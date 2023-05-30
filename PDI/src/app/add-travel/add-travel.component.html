@@ -34,14 +34,14 @@
           <ng-template pTemplate="header">
             <tr>
               <th>Nome</th>
-              <th>Data</th>
               <th>Partida</th>
+              <th>Data</th>
               <th>Destino</th>
               <th>Contacto</th>
-              <th></th>
+              
             </tr>
           </ng-template>
-          <ng-template pTemplate="body" let-viagem>
+          <ng-template pTemplate="body" let-viagem >
             <tr>
               <td>{{ viagem.nomeAluno }}</td>
               <td>{{ viagem.cidadePartida }}</td>
@@ -52,9 +52,7 @@
                 <button pButton icon="pi pi-trash" (click)="deleteViagem(viagem)" class="p-button-danger p-button-sm" tooltip="Eliminar" tooltipPosition="top"></button>
               </td>
             </tr>
-            
           </ng-template>
-          
         </p-table>
       </div>
     </div>

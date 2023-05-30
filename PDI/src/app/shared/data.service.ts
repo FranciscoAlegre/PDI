@@ -1,41 +1,56 @@
 import { Injectable } from '@angular/core';
-import{AngularFirestore} from'@angular/fire/compat/firestore';
-import{AngularFireStorage} from'@angular/fire/compat/storage';
-import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Viagem } from '../model/viagem';
 import { Observable } from 'rxjs';
-import { getFirestore } from 'firebase/firestore';
+
 @Injectable({
   providedIn: 'root'
 })
-
-
 export class DataService {
+  public userId: string | undefined; // Variable to store the user ID
 
-  constructor(private angularFirestore:AngularFirestore
-    ) { }
+  constructor(
+    private angularFirestore: AngularFirestore,
+    private fireauth: AngularFireAuth
+  ) {
+    this.fireauth.authState.subscribe(user => {
+      if (user) {
+        this.userId = user.uid; // Set the user ID when the user is authenticated
+      }
+    });
+  }
 
-  getViagemDoc(id: string | undefined){
+  getViagemDoc(id: string | undefined) {
     return this.angularFirestore
-    .collection('/Viagens')
-    .doc(id)
-    .valueChanges()
+      .collection(`/users/${this.userId}/Viagens`) // Retrieve trips under user-specific path
+      .doc(id)
+      .valueChanges();
+  }
+  
+  getAllViagemList(): Observable<any[]> {
+    return this.angularFirestore.collectionGroup('Viagens').valueChanges();
   }
   getViagemList(): Observable<any[]> {
-    return this.angularFirestore.collection('/Viagens').valueChanges();
+    return this.angularFirestore.collection(`/users/${this.userId}/Viagens`).valueChanges();
   }
-  creatViagem(Viagem:Viagem){
-    return new Promise<any>((resolve,reject)=>{
+
+  creatViagem(viagem: Viagem) {
+    return new Promise<any>((resolve, reject) => {
       this.angularFirestore
-      .collection('/Viagens')
-      .add(Viagem)
-      .then(response => {console.log(response)},error=>reject(error));
-      })
+        .collection(`/users/${this.userId}/Viagens`) // Save trips under user-specific path
+        .add(viagem)
+        .then(response => {
+          console.log(response);
+          resolve(response);
+        }, error => reject(error));
+    });
   }
-  deleteViagem(Viagem: Viagem){
+
+  deleteViagem(viagem: Viagem) {
     return this.angularFirestore
-    .collection('/Viagens')
-    .doc(Viagem.id)
-    .delete()
+      .collection(`/users/${this.userId}/Viagens`) // Delete trips under user-specific path
+      .doc(viagem.id)
+      .delete();
   }
 }
