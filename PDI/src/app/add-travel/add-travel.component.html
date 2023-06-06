@@ -30,19 +30,21 @@
     <div class="p-card w-100" style="width: 100%; display: flex; justify-content: center;">
       <div class="table-container">
         <p-table [value]="viagemList"
+        [scrollable]="true"
+        scrollHeight="400px" 
         >
           <ng-template pTemplate="header">
-            <tr>
-              <th>Nome</th>
-              <th>Partida</th>
-              <th>Data</th>
-              <th>Destino</th>
-              <th>Contacto</th>
-              
+            <tr >
+              <th  style="width: 20%;">Nome</th>
+              <th  style="width: 20%;">Partida</th>
+              <th  style="width: 20%;">Data</th>
+              <th  style="width: 20%;">Destino</th>
+              <th  style="width: 20%;">Contacto</th>
+              <th></th>
             </tr>
           </ng-template>
           <ng-template pTemplate="body" let-viagem >
-            <tr>
+            <tr style="height:46px">
               <td>{{ viagem.nomeAluno }}</td>
               <td>{{ viagem.cidadePartida }}</td>
               <td>{{ viagem.dataViagem }}</td>

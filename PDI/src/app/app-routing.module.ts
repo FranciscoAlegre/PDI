@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { AddTravelComponent } from './add-travel/add-travel.component';
 import { SearchTravelComponent } from './search-travel/search-travel.component';
 
+
 const routes: Routes = [
 
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -12,6 +13,9 @@ const routes: Routes = [
   { path: 'homepage', component: HomepageComponent },
   { path: 'addTravel', component: AddTravelComponent },
   { path: 'searchTravel', component: SearchTravelComponent },
+
+ 
+
 ];
 
 @NgModule({

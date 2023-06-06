@@ -5,6 +5,7 @@ export interface Viagem {
     nomeAluno:string,
     cidadePartida:string,
     nomeInstituicao:string,
-    userID:string
+    userID:string,
+    reservedBy: string ;
     
 }

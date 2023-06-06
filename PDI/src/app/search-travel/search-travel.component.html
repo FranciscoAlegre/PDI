@@ -1,32 +1,49 @@
+
 <app-nav-bar></app-nav-bar>
-
-
+<div class="container">
+    <div class="table-container">
+      <div class="card">
+        <div class="card">
+    <select [(ngModel)]="selectedInstituicao" (change)="onInstituicaoChange()">
+      <p-dropdown value="">Selecione uma instituição</p-dropdown>
+      <option *ngFor="let instituicao of instituicoes" [value]="instituicao">
+        {{ instituicao }}
+      </option>
+    </select>
+  </div>
+  
+       <p-table [value]="filteredViagemList" [scrollable]="true">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>Nome</th>
+                <th>Data</th>
+                <th>Partida</th>
+                <th>Destino</th>
+                <th>Contacto</th>
+                <th>Marcação</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-viagem>
+              <tr>
+                <td>{{ viagem.nomeAluno }}</td>
+                <td>{{ viagem.cidadePartida }}</td>
+                <td>{{ viagem.dataViagem }}</td>
+                <td>{{ viagem.nomeInstituicao }}</td>
+                <td>{{ viagem.contacto }}</td>
+                
+              </tr>
+            </ng-template>
+          </p-table>
+      </div>
+    </div>
 
     
-<div class="card">
-    <p-table [value]="viagemList"
-    >
-      <ng-template pTemplate="header">
-        <tr>
-          <th>Nome</th>
-          <th>Data</th>
-          <th>Partida</th>
-          <th>Destino</th>
-          <th>Contacto</th>
-          
-        </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-viagem>
-        <tr>
-          <td>{{ viagem.nomeAluno }}</td>
-          <td>{{ viagem.cidadePartida }}</td>
-          <td>{{ viagem.dataViagem }}</td>
-          <td>{{ viagem.nomeInstituicao }}</td>
-          <td>{{ viagem.contacto }}</td>
-          
-        </tr>
-        
-      </ng-template>
-      
-    </p-table>
+    
   </div>
+
+ 
+    
+   
+  
+ 
+        

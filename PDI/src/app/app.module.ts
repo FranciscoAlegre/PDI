@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -18,6 +18,7 @@ import { StepsModule } from 'primeng/steps';
 import{AvatarModule} from 'primeng/avatar';
 import {  PaginatorModule } from 'primeng/paginator';
 import { InputTextModule } from 'primeng/inputtext';
+
 import { ReactiveFormsModule } from '@angular/forms';
 import { SplitterModule } from 'primeng/splitter';
 import { PanelModule } from 'primeng/panel';
@@ -29,15 +30,18 @@ import{AngularFireModule} from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore/'; 
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database'; 
 import { environements } from 'src/environements/environements';
-import { initializeApp } from "@angular/fire/app";
+
+
 @NgModule({
+  
   declarations: [
     AppComponent,
     LoginComponent,
     HomepageComponent,
     SearchTravelComponent,
     AddTravelComponent,
-    NavBarComponent
+    NavBarComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -66,6 +70,7 @@ import { initializeApp } from "@angular/fire/app";
     AngularFireDatabaseModule
   ],
   providers: [],
+  schemas:[NO_ERRORS_SCHEMA,CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

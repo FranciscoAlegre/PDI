@@ -3,7 +3,8 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Viagem } from '../model/viagem';
 import { Observable } from 'rxjs';
-
+import * as nodemailer from'nodemailer';
+import { AuthService } from './auth.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -12,7 +13,8 @@ export class DataService {
 
   constructor(
     private angularFirestore: AngularFirestore,
-    private fireauth: AngularFireAuth
+    private fireauth: AngularFireAuth,
+    private authService: AuthService
   ) {
     this.fireauth.authState.subscribe(user => {
       if (user) {
@@ -20,7 +22,15 @@ export class DataService {
       }
     });
   }
-
+  
+  
+  
+  getUserId(): string | undefined {
+    return this.userId;
+  }
+  
+  
+  
   getViagemDoc(id: string | undefined) {
     return this.angularFirestore
       .collection(`/users/${this.userId}/Viagens`) // Retrieve trips under user-specific path
@@ -36,6 +46,7 @@ export class DataService {
   }
 
   creatViagem(viagem: Viagem) {
+    
     return new Promise<any>((resolve, reject) => {
       this.angularFirestore
         .collection(`/users/${this.userId}/Viagens`) // Save trips under user-specific path
@@ -49,7 +60,7 @@ export class DataService {
 
   deleteViagem(viagem: Viagem) {
     return this.angularFirestore
-      .collection(`/users/${this.userId}/Viagens`) // Delete trips under user-specific path
+      .collection(`/users/${this.userId}/Viagens`) 
       .doc(viagem.id)
       .delete();
   }
