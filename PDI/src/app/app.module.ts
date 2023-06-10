@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,23 +13,37 @@ import{MenubarModule} from'primeng/menubar';
 import { TabViewModule } from 'primeng/tabview';
 import{TagModule} from 'primeng/tag';
 import{ToastModule} from 'primeng/toast';
+import { TableModule } from 'primeng/table';
 import { StepsModule } from 'primeng/steps';
+import{AvatarModule} from 'primeng/avatar';
+import {  PaginatorModule } from 'primeng/paginator';
 import { InputTextModule } from 'primeng/inputtext';
+
 import { ReactiveFormsModule } from '@angular/forms';
+import { SplitterModule } from 'primeng/splitter';
 import { PanelModule } from 'primeng/panel';
 import { HomepageComponent } from './homepage/homepage.component';
 import { SearchTravelComponent } from './search-travel/search-travel.component';
 import { AddTravelComponent } from './add-travel/add-travel.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component'; 
+import{AngularFireModule} from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore/'; 
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database'; 
+import { environements } from 'src/environements/environements';
+import { FooterComponent } from './footer/footer.component';
+
 
 @NgModule({
+  
   declarations: [
     AppComponent,
     LoginComponent,
     HomepageComponent,
     SearchTravelComponent,
     AddTravelComponent,
-    NavBarComponent
+    NavBarComponent,
+    FooterComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -45,10 +59,20 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     TagModule,
     StepsModule,
     ToastModule,
+    PaginatorModule,
+    SplitterModule,
     InputTextModule,
-    PanelModule
+    PanelModule,
+    TableModule,
+    AvatarModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environements.firebase),
+    AngularFirestoreModule,
+    AngularFireDatabaseModule
   ],
   providers: [],
+  schemas:[NO_ERRORS_SCHEMA,CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
