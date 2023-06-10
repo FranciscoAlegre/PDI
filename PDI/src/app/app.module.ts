@@ -30,6 +30,7 @@ import{AngularFireModule} from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore/'; 
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database'; 
 import { environements } from 'src/environements/environements';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { environements } from 'src/environements/environements';
     SearchTravelComponent,
     AddTravelComponent,
     NavBarComponent,
+    FooterComponent,
     
   ],
   imports: [

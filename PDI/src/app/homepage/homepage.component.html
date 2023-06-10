@@ -1,29 +1,28 @@
-
-
 <app-nav-bar></app-nav-bar>
-<div class="card ">
-   <div > 
-    <p-tabView>
-        <p-tabPanel header="O nosso objetivo" >
-            <p>
-                Descobre a aplicação BLA BLA IPC: A boleia do IPC que vai transformar a tua deslocação! Agenda as tuas viagens com facilidade, economiza tempo e poupa!
-                
-            </p>
+
+<div class="background-image">
+  <div class="card transparent-card">
+    <div>
+      <p-tabView>
+        <p-tabPanel header="O nosso objetivo">
+          <p>
+            Descobre a aplicação BLA BLA IPC: A boleia do IPC que vai transformar a tua deslocação! Agenda as tuas viagens com facilidade, economiza tempo e poupa!
+          </p>
         </p-tabPanel>
-        
-    </p-tabView>
-</div>
-<p-divider></p-divider>
-
-<div class="card flex justify-content-center">
-    <p-card header="Procurar Viagens" class="text-center" >
-        <img src="assets/image2.png"  width="500" height="300">
+      </p-tabView>
+    </div>
+    <p-divider></p-divider>
+    <div class="card flex justify-content-center ">
+      <p-card header="Procurar Viagens" class="text-center card " >
+        <img src="assets/image2.png" width="500" height="300">
         <p-button (click)="onClicksearchTravel()" class="flex justify-content-center">Procurar Viagem</p-button>
-    </p-card> 
-    <p-card header="Adicionar Viagens" class="text-center">
-        <img src="assets/image1.png"  width="500" height="300">
+      </p-card>
+      <p-card header="Adicionar Viagens" class="text-center card" >
+        <img src="assets/image1.png" width="500" height="300">
         <p-button (click)="onClickADD()" class="flex justify-content-center">Adicionar Viagem</p-button>
-    </p-card>
-</div>
-
+      </p-card>
+    </div>
+  </div>
+  
+  <app-footer></app-footer>
 </div>

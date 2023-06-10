@@ -3,4 +3,19 @@
     color: aliceblue;
     box-shadow: 0 1px 10px black;
   }
+  .background-image {
+    background-image: url("https://keeganauto.com/wp-content/uploads/2021/01/how-to-get-your-vehicle-ready-for-spring.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+  }
   
+
+
+  @media (max-width: 768px) {
+    .card {
+      width: 100%;
+      max-width: 100%;
+      margin: 10px;
+    }
+  }

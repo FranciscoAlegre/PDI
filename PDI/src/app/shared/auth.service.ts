@@ -27,37 +27,52 @@ export class AuthService {
     return this.userId;
   }
 
-  login(email: string, password: string) {
-    this.fireauth.signInWithEmailAndPassword(email, password).then(() => {
-      localStorage.setItem('token', 'true');
-      this.router.navigate(['homepage']);
-    }, err => {
-      alert('Credenciais Erradas');
-    });
-  }
-
   registar(email: string, password: string) {
-    this.fireauth.createUserWithEmailAndPassword(email, password).then(() => {
-      alert('Perfil criado com sucesso');
-    });
+    const alumniEmailRegex =/^[A-Za-z0-9._%+-]+@alumni\.[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/
+    const isAlumniEmail = alumniEmailRegex.test(email);
+  
+    if (!isAlumniEmail) {
+      alert('Please use a valid email address ending with @alumni.pt');
+      return;
+    }
+  
+    this.fireauth
+      .createUserWithEmailAndPassword(email, password)
+      .then(() => {
+        alert('Profile created successfully');
+        this.router.navigate(['homepage']);
+      })
+      .catch((error) => {
+        console.error('Failed to create user:', error);
+        alert('An error occurred while creating the profile');
+      });
+  }
+  
+
+  login(email: string, password: string) {
+    this.fireauth
+      .signInWithEmailAndPassword(email, password)
+      .then(() => {
+        localStorage.setItem('token', 'true');
+        this.router.navigate(['homepage']);
+      })
+      .catch((error) => {
+        alert('Credenciais Erradas');
+      });
   }
 
   logout() {
-    this.fireauth.signOut().then(() => {
-      localStorage.removeItem('token');
-      this.router.navigate(['login']);
-    });
-  }
-  isLoggedIn(): boolean {
-    // Implement your logic to check if the user is logged in
-    // For example, you can check if the user's token exists in localStorage
-    const token = localStorage.getItem('token');
-    return !!token;
+    this.fireauth
+      .signOut()
+      .then(() => {
+        localStorage.removeItem('token');
+        this.router.navigate(['login']);
+      });
   }
 
   getUserEmail(): Observable<string | null> {
     return this.fireauth.authState.pipe(
-      map(user => user ? user.email : null)
+      map((user) => (user ? user.email : null))
     );
   }
 }
