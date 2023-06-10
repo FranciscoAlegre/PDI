@@ -10,12 +10,15 @@
     background-position: center center;
   }
   
-
-
-  @media (max-width: 768px) {
-    .card {
+ .card1{
       width: 100%;
-      max-width: 100%;
+      max-width: 46.6%;
       margin: 10px;
-    }
+
   }
+  .card2{
+    width: 100%;
+    max-width: 80%;
+    margin: 10px;
+
+}

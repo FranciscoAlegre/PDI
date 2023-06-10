@@ -10,8 +10,8 @@
 
   <p-divider></p-divider>
 
-  <div style="display: flex; justify-content: space-evenly;">
-    <p-splitter styleClass="mb-5">
+  <div style="display: flex; justify-content: space-evenly;" >
+    <p-splitter [panelSizes]="[25, 75]"styleClass="mb-5">
       <ng-template pTemplate>
         <div class="p-card w-100 gradient-background1" style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;">
           <form [formGroup]="criarViagem" (submit)="onSubmit()" style="width: 90%; padding: 20px;">
