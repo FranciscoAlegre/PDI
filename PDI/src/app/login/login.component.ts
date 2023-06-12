@@ -31,7 +31,22 @@ login(){
     this.email='';
     this.password='';
     }
-
+    resetPassword() {
+      if (this.email === '') {
+        alert('Please enter a valid email');
+        return;
+      }
+    
+      this.auth.sendPasswordResetEmail(this.email)
+        .then(() => {
+          alert('Password reset email sent. Please check your inbox.');
+        })
+        .catch((error) => {
+          console.error('Failed to send password reset email:', error);
+          alert('An error occurred while resetting the password.');
+        });
+    }
+    
     registar(){
       if(this.email == ''){
       alert('Por favor introduz um email válido');

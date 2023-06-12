@@ -48,7 +48,10 @@ export class AuthService {
       });
   }
   
-
+  sendPasswordResetEmail(email: string) {
+    return this.fireauth.sendPasswordResetEmail(email);
+  }
+  
   login(email: string, password: string) {
     this.fireauth
       .signInWithEmailAndPassword(email, password)
