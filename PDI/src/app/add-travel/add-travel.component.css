@@ -156,8 +156,7 @@
 	font-style: italic;
 	color: gray;
   }
-  
-  
+
   /* Responsive Styles */
   @media only screen and (max-width: 600px) {
 	.table-container {
